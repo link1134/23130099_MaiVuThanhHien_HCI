@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #e6e6e6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .test-case-result {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
+
+        .test-case-result label {
+            font-weight: bold;
+        }
+
+        .test-case-result span {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .score {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .action-button:hover {
+            background-color: #555;
+        }
+
+        .hint {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Submitssion Status</h1>
+        <div class="status">Status: <span id="submission-status">Success</span></div>
+
+        <div class="test-case-result">
+            <label>Test Case 1:</label>
+            <span>Input: 1, 2, 3, 1</span>
+            <span>Expected Output: true</span>
+            <span>Actual Output: true</span>
+            <span>Status: <span style="color: green;">Passed</span></span>
+        </div>
+
+        <div class="test-case-result">
+            <label>Test Case 2:</label>
+            <span>Input: 1, 2, 3, 4</span>
+            <span>Expected Output: false</span>
+            <span>Actual Output: true</span>
+            <span>Status: <span style="color: red;">Failed</span></span>
+        </div>
+
+        <div class="test-case-result">
+            <label>Test Case 3:</label>
+            <span>Input: 1, 2, 3, 2</span>
+            <span>Expected Output: true</span>
+            <span>Actual Output: true</span>
+            <span>Status: <span style="color: green;">Passed</span></span>
+        </div>
+
+        <div class="score">Point: 2/3</div>
+
+        <div class="buttons">
+            <button class="action-button" onclick="window.location.href = 'coding_environment.html'">Retry</button>
+            <button class="action-button" onclick="window.location.href = 'lab2.html'">To Dashboard</button>
+            <button class="action-button" onclick="showHint()">Hint</button>
+        </div>
+
+        <div class="hint" id="hint" style="display: none;">
+            <p><strong>Tip:</strong> Double-check your logic to make sure all fields are handled correctly!</p>
+        </div>
+    </div>
+
+    <script>
+        
+        const statuses = ['Success', 'Failed', 'Compilation Error', 'Time Limit Exceeded'];
+        document.getElementById('submission-status').innerText = statuses[Math.floor(Math.random() * statuses.length)];
+
+        function showHint() {
+            const hint = document.getElementById('hint');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+
+</html>

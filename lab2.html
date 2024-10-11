@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Bài Tập</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #e6e6e6;
+
+            color: #333;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+
+            transition: box-shadow 0.3s ease;
+        }
+
+        .header input[type="text"]:hover,
+        .header input[type="text"]:focus {
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .filter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #555;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+
+            transform: translateY(-5px);
+        }
+
+        .button.active {
+            background-color: aliceblue;
+            color: #333;
+
+            transform: translateY(-5px);
+            box-shadow: none;
+
+        }
+
+        .exercise-list {
+            margin-top: 20px;
+        }
+
+        .exercise-item {
+            border-bottom: 1px solid #ccc;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+
+        }
+
+        .exercise-item:hover {
+            box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.2);
+
+            color: #f0f0f0;
+            background-color: #333;
+        }
+
+        .exercise-details {
+            width: 70%;
+        }
+
+        .exercise-progress {
+            text-align: right;
+        }
+
+        .exercise-progress span {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .completed {
+            background-color: #4CAF50;
+
+            color: white;
+        }
+
+        .in-progress {
+            background-color: #FF9800;
+
+            color: white;
+        }
+
+        .not-started {
+            background-color: #F44336;
+
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <input type="text" id="search" placeholder="Search problem...">
+            <div class="filter">
+                <button onclick="filterExercises('all', event)" class="button">All</button>
+                <button onclick="filterExercises('java',event)" class="button">Java</button>
+                <button onclick="filterExercises('python',event)" class="button">Python</button>
+                <button onclick="filterExercises('c',event)" class="button">C</button>
+            </div>
+        </div>
+
+        <div class="exercise-list" id="exercise-list">
+            <div class="exercise-item" data-language="java" data-name="Contains Duplicate"
+                onclick="startExercise('coding_environment.html')">
+                <div class="exercise-details">
+                    <h3 style="font-weight: 600; font-style: normal;">Contains Duplicate</h3>
+                    <p>Write a program to input an array of data type int and see if it has a value that appears twice
+                    </p>
+                    <p>Programming language: Java | Difficult: Easy | Time Limit: 15 minutes</p>
+                </div>
+                <div class="exercise-progress">
+                    <span class="completed">Completed</span>
+                </div>
+            </div>
+
+            <div class="exercise-item" data-language="python" data-name="Palindrome Number"
+                onclick="startExercise('coding_environment.html')">
+                <div class="exercise-details">
+                    <h3 style="font-weight: 600; font-style: normal;">Palindrome Number</h3>
+                    <p>Enter a number and check if it is a palindrome number</p>
+                    <p>Programming language: Python | Difficult: Normal | Time Limit: 15 minutes</p>
+                </div>
+                <div class="exercise-progress">
+                    <span class="in-progress">In progress</span>
+                </div>
+            </div>
+
+            <div class="exercise-item" data-language="c" data-name="Single Number"
+                onclick="startExercise('coding_environment.html')">
+                <div class="exercise-details">
+                    <h3 style="font-weight: 600; font-style: normal;">Single Number</h3>
+                    <p>Given a non-empty int array, every element in the array appears twice except one element. Find
+                        that element.</p>
+                    <p>Programming language: C | Difficult: Hard | Time Limit: 15 minutes</p>
+                </div>
+                <div class="exercise-progress">
+                    <span class="not-started">Not started</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterExercises(language, evt) {
+            var button;
+            button = document.getElementsByClassName("button");
+            for (i = 0; i < button.length; i++) {
+                button[i].className = button[i].className.replace(" active", "");
+            }
+            const exercises = document.querySelectorAll('.exercise-item');
+            exercises.forEach(exercise => {
+                if (language === 'all' || exercise.dataset.language === language) {
+                    exercise.style.display = 'flex';
+                } else {
+                    exercise.style.display = 'none';
+                }
+            });
+
+            evt.currentTarget.className += " active";
+        }
+
+        function startExercise(url) {
+            window.location.href = url;
+        }
+
+        document.getElementById('search').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const exercises = document.querySelectorAll('.exercise-item');
+            exercises.forEach(exercise => {
+                const exerciseName = exercise.dataset.name.toLowerCase();
+                if (exerciseName.includes(searchTerm)) {
+                    exercise.style.display = 'flex';
+                } else {
+                    exercise.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Environment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #e6e6e6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .coding-environment {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 10px;
+            position: relative;
+            height: 300px;
+
+            padding-top: 50px;
+
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            z-index: 1000;
+
+        }
+
+        .timer {
+            font-size: 18px;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .tabs {
+            display: flex;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px 5px 0 0;
+            background-color: #fff;
+            margin-right: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab:hover {
+            background-color: #f0f0f0;
+        }
+
+        .active {
+            background-color: #e6e6e6;
+            border-bottom: none;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            border: 1px solid #ccc;
+            border-radius: 0 0 5px 5px;
+            padding: 20px;
+            background-color: #fff;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .test-case,
+        .test-result {
+            margin-bottom: 15px;
+        }
+
+        .test-case input,
+        .test-result input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .action-button:hover {
+            background-color: #555;
+        }
+    </style>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/clike/clike.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Contains Duplicate</h1>
+        <div class="description">Write a program to input an array of data type int and see if it has a value that
+            appears twice.</div>
+
+        <div class="coding-environment">
+            <select class="language-dropdown" id="languageSelect" onchange="changeLanguage()">
+
+                <option value="text/x-java">Java</option>
+                <option value="text/x-csrc">C</option>
+                <option value="python">Python</option>
+            </select>
+            <textarea id="code" name="code"></textarea>
+            <div class="timer" id="timer">Thời gian: 00:00</div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('test-case')">Test Case</div>
+            <div class="tab" onclick="showTab('test-result')">Test Result</div>
+        </div>
+
+        <div class="tab-content test-case active">
+            <div class="test-case">
+                <label for="input1">Input 1:</label>
+                <input type="text" id="input1" placeholder="Enter input...">
+                <label for="expected-output1">Expected Output 1:</label>
+                <input type="text" id="expected-output1" placeholder="Enter output...">
+            </div>
+            <div class="test-case">
+                <label for="input2">Input 2:</label>
+                <input type="text" id="input2" placeholder="Enter input...">
+                <label for="expected-output2">Expected Output 2:</label>
+                <input type="text" id="expected-output2" placeholder="Enter output...">
+            </div>
+        </div>
+
+        <div class="tab-content test-result">
+            <div class="test-result">
+                <label>Input 1:</label>
+                <span id="input1-result">intput = </span><br>
+                <label>Expected Output 1:</label>
+                <span id="expected-output1-result">expected output = </span><br>
+                <label>Actual Output 1:</label>
+                <span id="actual-output1">actual output = </span><br>
+            </div>
+            <div class="test-result">
+                <label>Input 2:</label>
+                <span id="input2-result">intput = </span><br>
+                <label>Expected Output 2:</label>
+                <span id="expected-output2-result">expected output = </span><br>
+                <label>Actual Output 2:</label>
+                <span id="actual-output2">actual output = </span><br>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="action-button" onclick="clearCode()">Clear Code</button>
+            <button class="action-button">Run</button>
+            <button class="action-button" onclick="window.location.href = 'After_submit.html'">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let seconds = 0;
+        const timer = document.getElementById('timer');
+
+        setInterval(() => {
+            seconds++;
+            const minutes = Math.floor(seconds / 60);
+            const displayedSeconds = seconds % 60;
+            timer.textContent = `Time: ${minutes < 10 ? '0' : ''}${minutes}:${displayedSeconds < 10 ? '0' : ''}${displayedSeconds}`;
+        }, 1000);
+
+        function showTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(tc => tc.classList.remove('active'));
+
+            document.querySelector(`.tab-content.${tab}`).classList.add('active');
+            document.querySelector(`.tab.${tab}`).classList.add('active');
+        }
+
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            mode: "javascript",
+            theme: "default"
+        });
+
+
+        function clearCode() {
+            editor.setValue("");
+        }
+
+
+        function changeLanguage() {
+            const selectedLanguage = document.getElementById("languageSelect").value;
+            editor.setOption("mode", selectedLanguage);
+        }
+    </script>
+
+</body>
+
+</html>
