@@ -6,190 +6,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e6d841051d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
     <title>Home</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0%;
-            box-sizing: border-box;
-        }
-
-        html {
-            height: 100%;
-        }
-
-        .main {
-            height: 100vh;
-            display: flex;
-        }
-
-        .left {
-            display: flex;
-            flex-direction: column;
-            width: 240px;
-            background-color: rgba(0, 0, 0, 0.838);
-
-        }
-
-        .left_head {
-            height: 30%;
-            color: aliceblue;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .left_bottom {
-            height: 35%;
-            display: flex;
-            flex-direction: column;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .left_mid {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding-left: 50px;
-        }
-
-        .left_bottom_top {
-            display: flex;
-            flex-direction: column;
-            height: 50%;
-            border-bottom: 2px dashed gray;
-            border-top: 2px dashed gray;
-            text-align: center;
-            justify-content: center;
-        }
-
-        .left_bottom_bot {
-
-            text-align: center;
-            justify-content: center;
-        }
-
-
-
-        .button {
-
-            padding: 10px 0;
-            border: none;
-            text-align: left;
-            font-size: 18px;
-            font-family: "Oswald", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            text-decoration: none;
-            color: rgb(255, 255, 255);
-            cursor: pointer;
-            background-color: inherit;
-
-        }
-
-        .button:hover {
-
-            transition: all 0.2s ease;
-            transform: translateX(5px);
-
-            box-shadow: -5px 5px 10px rgba(255, 255, 255, 0.2);
-
-            background-color: rgb(140, 139, 139)
-        }
-
-        .button.active {
-            box-shadow: none;
-            background-color: aliceblue;
-            color: #000;
-            transform: translateX(5px);
-        }
-
-
-
-        .p2 {
-            font-family: "Oswald", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-size: 12px;
-            font-style: normal;
-            text-decoration: none;
-            color: rgb(255, 255, 255);
-        }
-
-        h1 {
-            padding-top: 45px;
-            font-family: "Bungee", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            color: aliceblue;
-        }
-
-        .p1 {
-            color: gray;
-            font-family: "Oswald", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 300;
-            font-style: normal;
-        }
-
-        .iconContainer {
-            display: inline-flex;
-        }
-
-        img {
-
-            color: rgb(255, 255, 255);
-        }
-
-        .social_container {
-            display: flex;
-            justify-content: center;
-            align-content: center;
-        }
-
-        .social_icon {
-            padding-top: 40px;
-            padding-left: 15px;
-            padding-right: 15px;
-            padding-bottom: 30px;
-            text-decoration: none;
-            color: aliceblue;
-            transition: transform 0.2s ease;
-        }
-
-        .social_icon:hover {
-            transform: scale(1.5);
-        }
-
-
-
-
-        .h2 {
-            font-family: "Oswald", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 600;
-            font-style: normal;
-            color: rgb(249, 249, 249);
-            font-size: 90px;
-        }
-
-        .container.home {
-            display: flex;
-            flex: 1;
-
-            flex-direction: column;
-            padding: 0%;
-            background: linear-gradient(90deg, rgba(74, 70, 70, 0.838), rgb(159, 159, 159), rgba(74, 70, 70, 0.838));
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -201,8 +24,9 @@
             </div>
             <div class="left_mid">
                 <a href="index.html" class="button" onclick="openTab(event, 'home')">Home</a>
-                <a href="cv.html" class="button" onclick="openTab(event, 'cv')">About me</a>
-                <a href="labs.html" class="button" onclick="openTab(event, 'All labs')">All labs</a>
+                <a href="cv.html" class="button" onclick="openTab(event, 'cv')" target="_blank">About me</a>
+                <a href="labs.html" class="button" onclick="openTab(event, 'All labs')" target="_blank">All labs</a>
+                <a href="#." class="button madColor" onclick="openTab(event, 'Result')" target="_blank">Result</a>
             </div>
             <div class="left_bottom">
                 <div class="left_bottom_top">
@@ -234,5 +58,7 @@
         </div>
 
 
+        <script>
 
+        </script>
 </body>
