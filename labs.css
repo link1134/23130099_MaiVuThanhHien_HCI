@@ -5,12 +5,10 @@
 }
 
 .menu_sidebar {
-    padding-top: 41.6px;
     padding-bottom: 41.6px;
     position: fixed;
     top: 50px;
     right: -50px;
-    height: 499.2px;
     width: 50px;
     background-color: #444;
     color: white;
@@ -115,13 +113,122 @@
 /* Từ chỗ này là css của lab1 */
 .container.lab1 {
     display: none;
-    flex: 1;
-    height: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.madColor {
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.madColor:hover {
+    animation: pulse 3s infinite;
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% {
+        color: #ffffff;
+        /* Trắng */
+    }
+
+    12.5% {
+        color: #ffe4b5;
+        /* Cam nhạt */
+    }
+
+    25% {
+        color: #98fb98;
+        /* Xanh lá nhạt */
+    }
+
+    37.5% {
+        color: #87cefa;
+        /* Xanh da trời nhạt */
+    }
+
+    50% {
+        color: #dda0dd;
+        /* Tím nhạt */
+    }
+
+    62.5% {
+        color: #ffb6c1;
+        /* Hồng nhạt */
+    }
+
+    75% {
+        color: #ffd700;
+        /* Vàng */
+    }
+
+    87.5% {
+        color: #00ced1;
+        /* Xanh ngọc */
+    }
+
+    100% {
+        color: #ffffff;
+        /* Quay lại trắng */
+    }
+}
+
+.h1_lab1 {
+    text-align: center;
+    color: #333;
+}
+
+form_lab1 {
+    display: flex;
     flex-direction: column;
-    padding: 0%;
-    background: linear-gradient(90deg, rgba(74, 70, 70, 0.838), rgb(159, 159, 159), rgba(74, 70, 70, 0.838));
-    align-items: center;
-    justify-content: center;
+    gap: 15px;
+}
+
+label_lab1 {
+    font-weight: bold;
+    color: #555;
+}
+
+.input_lab1,
+.textarea_lab1,
+.select_lab1,
+.button_lab1 {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.input_lab1[readonly],
+.textarea_lab1[readonly] {
+    background-color: #e9ecef;
+}
+
+.button_lab1 {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button_lab1:hover {
+    background-color: #0056b3;
+}
+
+.actions_lab1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions_lab1 button_lab1 {
+    width: 48%;
 }
 
 /* Tới đây là kết thúc css của lab1 và tới lab2*/
@@ -659,14 +766,212 @@
 }
 
 /* Kết thúc css của lab4 */
-
+/* Mở đầu css của lab5 */
 .container.lab5 {
     display: none;
-    flex: 1;
-    height: 100%;
     flex-direction: column;
-    padding: 0%;
-    background: linear-gradient(90deg, rgba(74, 70, 70, 0.838), rgb(159, 159, 159), rgba(74, 70, 70, 0.838));
+
+}
+
+.header_lab5 {
+    background-color: rgb(0, 0, 0, 0.8);
+}
+
+.button_tabs_lab5 {
+    border: 0;
+    background-color: inherit;
+    color: rgb(196, 196, 196);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.button_tabs_lab5.active {
+    border-bottom: 4px solid white;
+    color: white;
+}
+
+.certifications_tab_lab5 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+
+}
+
+.certifications_box1_lab5 {
+    padding-top: 15px;
+    border-top: 1px solid rgb(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgb(0, 0, 0, 0.3);
+    padding-bottom: 15px;
+}
+
+.certifications_box2_lab5 {
+    padding-top: 15px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.3);
+    padding-bottom: 15px;
+}
+
+.certification_box_lab4 {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-bottom: 30px;
+    width: 880px;
+}
+
+.a_cerfification_box_lab4 {
+    height: 130px;
+    width: 430px;
+
+    border: 2px solid rgb(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.card_box_lab5 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.archived_tab_lab5 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+    display: none;
+}
+
+.button_card_lab5 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    border: 0;
+    background-color: white;
+    justify-content: center;
+}
+
+.learning-tools_tab_lab5 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+    display: none;
+}
+
+.learning-tools_box_tab_lab5 {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+    width: 1224px;
+}
+
+.a_learning-tools_box_tab_lab5 {
+    width: 602px;
+    height: 170px;
+    border: 2px solid rgb(0, 0, 0, 0.3);
+    display: flex;
+    padding: 20px;
+    padding-left: 0;
+}
+
+.inner_a_learning-tools_box_tab_lab5 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kết thúc css của lab5 */
+.container.lab6 {
+    display: none;
+    flex-direction: column;
+
+}
+
+.container_lab6 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+.main-navbar_lab6 {
+    background: #021520;
+
+}
+
+.inner_navbar_lab6 {
+    margin-bottom: 0 !important;
+    padding: 0 calc(11% - 30px);
+    display: flex;
+    align-items: center;
+}
+
+.inner_left_lab6 {
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.custom_dropdown_lab6 {
+    border: none !important;
+    background: inherit;
+    color: white !important;
+    margin-right: 40px;
+}
+
+.custom_item_lab6 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+@media(max-width: 885px) {
+    .ms-auto.media1 {
+        display: none;
+    }
+}
+
+@media(max-width: 810px) {
+    .left_img_lab6 {
+        display: none;
+    }
+
+    .right_img_lab6 {
+        display: none;
+    }
+}
+
+.media1 {
+    display: flex;
+}
+
+.other_body_lab6 {
+    padding-left: calc(8% / 1) !important;
+    padding-right: calc(8% / 1) !important;
+}
+
+.left_img_lab6 {
+    width: 17%;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 1;
+}
+
+.right_img_lab6 {
+    width: 17%;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    z-index: 1;
 }

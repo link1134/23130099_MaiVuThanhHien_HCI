@@ -1,0 +1,113 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e6d841051d.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style_req7.css">
+    <title>Req7</title>
+</head>
+
+<body>
+    <div style="background-color: #f7f9fa; min-height: 100vh; padding-left: 4rem; padding-right: 4rem;">
+        <h1 style="font-size: 30px; font-weight: 300; margin-left: 40px;">Learning focused on your goals</h1>
+        <div class="container_req7_lab6">
+            <div class="left_req7_lab6">
+                <div class="a_box_req7_lab6 active" onclick="activeThis(event, 'first')">
+                    <img src="image_location/hands-on-practice.png" alt=""
+                        style="aspect-ratio: auto 64/64; height: 64px; width: 64px;">
+                    <div style="display: block; padding: 20px;">
+                        <p style="font-size: 1.2rem; font-weight: 700;margin: 0%;">Hands-on training
+                        </p>
+                        <p style="font-size: 1rem; color: #6a6f73;">Upskill effectively with AI-powered coding
+                            exercises,
+                            practice tests, and quizzes.</p>
+                    </div>
+                </div>
+                <div class="a_box_req7_lab6" onclick="activeThis(event, 'second')">
+                    <img src="image_location/certificate.png" alt=""
+                        style="aspect-ratio: auto 64/64; height: 64px; width: 64px;">
+                    <div style="display: block; padding: 20px;">
+                        <p style="font-size: 1.2rem; font-weight: 700;margin: 0%; ">Certification prep
+                        </p>
+                        <p style="font-size: 1rem; color: #6a6f73;">Prep for industry-recognized certifications by
+                            solving
+                            real-world challenges and earn badges along the way.</p>
+                    </div>
+                </div>
+                <div class="a_box_req7_lab6" onclick="activeThis(event, 'third')">
+                    <img src="image_location/empty-state-1.png" alt=""
+                        style="aspect-ratio: auto 64/64; height: 64px; width: 64px;">
+                    <div style="display: block; padding: 20px;">
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 1.2rem; font-weight: 700; margin: 0%;">Insights and analytics
+                            <div
+                                style="padding: 3px 8px; border: 1px solid #5022c3; max-height: 23px; margin-left: 10px; border-radius: 5px; font-weight: bold; color: #5022c3;">
+                                Enterprise Plan
+                            </div>
+                        </div>
+                        </p>
+                        <div>
+                            <p style="font-size: 1rem; color: #6a6f73;">Fast-track goals with advanced insights plus a
+                                dedicated
+                                customer success team to help drive effective learning.
+                            </p>
+                            <a href="#" style="text-decoration: none; color: #5022c3; font-weight: bold;">Find out more
+                                <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="a_box_req7_lab6" onclick="activeThis(event, 'fourth')">
+                    <img src="image_location/organizations-2.png" alt=""
+                        style="aspect-ratio: auto 64/64; height: 64px; width: 64px;">
+                    <div style="display: block; padding: 20px;">
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 1.2rem; font-weight: 700; margin: 0%;">Customizable content
+                            <div
+                                style="padding: 3px 8px; border: 1px solid #5022c3; max-height: 23px; margin-left: 10px; border-radius: 5px; font-weight: bold; color: #5022c3;">
+                                Enterprise Plan
+                            </div>
+                        </div>
+                        </p>
+                        <div>
+                            <p style="font-size: 1rem; color: #6a6f73;">Create tailored learning paths for team and
+                                organization goals and even host your own content and resources.
+                            </p>
+                            <a href="#" style="text-decoration: none; color: #5022c3; font-weight: bold;">Find out more
+                                <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_req7_lab6">
+                <img src="image_location/desktop-hands-on-learning-2x.png" alt="" style="max-width: 535px; max-height: 636px; display: block;"
+                    class="img" id="first">
+                <img src="image_location/desktop-certification-prep-2x.png" alt="" style="max-width: 535px; max-height: 636px;"
+                    class="img" id="second">
+                <img src="image_location/desktop-insights-and-analytics-2x.png" alt="" style="max-width: 535px; max-height: 636px;"
+                    class="img" id="third">
+                <img src="image_location/desktop-customizable-2x.png" alt="" style="max-width: 535px; max-height: 636px;"
+                    class="img" id="fourth">
+            </div>
+        </div>
+    </div>
+    <script>
+        function activeThis(evt, count) {
+            var i, image, tablinks;
+            image = document.getElementsByClassName("img");
+            for (i = 0; i < image.length; i++) {
+                image[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("a_box_req7_lab6");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(count).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>

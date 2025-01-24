@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.pl6{
+  margin: 0%;
+  font-size: 0.8rem;
+}
+.custom_item_lab6{
+  background-color: rgb(231, 231, 231);
+  border-radius: 25px;
+  padding: 0.6rem 1.4rem .4rem;
+  margin-right: 1rem;
+}
+.container_custom_lab6{
+  display: flex;
+  justify-content: center !important;
+}
+.nav_custom_lab6{
+  max-width: 1000px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.hidden_card_lab6{
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  z-index: 999999;
+  left: 310px; /* Adjust based on the width of the main card */
+  top: -20px;
+  width: 371px;
+}
+.hidden1:hover + .hidden_card_lab6{
+  opacity: 1;
+  transition: opacity 0.3s, transform 0.3s;
+  visibility: visible;
+}
+.container_hidden:hover .hidden_card_lab6{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
